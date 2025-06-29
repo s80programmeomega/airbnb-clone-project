@@ -215,9 +215,45 @@ Relational database management systems (RDBMS) for structured data storage.
 
 ## 4. Feature Breakdown
 
+### 1. User Authentication & Profiles
+
+  Purpose: Secure signup/login with role-based access (guest/host)
+  
+  Contribution: Enables personalized experiences, protects sensitive actions (e.g., host-only listing creation), and builds trust through       verifiable profiles
+
+### 2. Listing Management
+  
+  Purpose: Hosts create/edit property listings with photos, descriptions, pricing, and amenities
+  
+  Contribution: Forms the core inventory of rentable spaces, enabling detailed property discovery and informed guest decisions
+
+### 3. Search & Filtering
+
+Purpose: Location-based search with filters (dates, price, amenities, guests)
+
+Contribution: Drives engagement by helping guests find ideal properties quickly, directly impacting booking conversions
+
+### 4. Booking System
+
+  Purpose: Date selection, price calculation, and reservation management with status tracking
+  
+  Contribution: Facilitates the core transaction flow, handles date conflicts, and automates cost calculations for seamless reservations
+
+### 5. Reviews & Ratings
+
+  Purpose: Post-stay reviews with ratings (1-5 stars) and comments tied to bookings
+  
+  Contribution: Builds credibility through authentic feedback, informs future guests, and incentivizes host quality improvements
+
+### 6. Booking Calendar
+
+  Purpose: Real-time visibility of property availability with blocking of booked dates
+
+  Contribution: Prevents overbooking conflicts and provides instant availability status for both hosts and guests
+
 ## 5. API Security
 
-## Database Design Overview
+
 
 
 
