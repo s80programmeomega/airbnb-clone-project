@@ -286,8 +286,19 @@ Implementation: Django form/model validation, parameterized queries to block SQL
 Why Crucial: Neutralizes injection attacks (e.g., malicious scripts in reviews) that could compromise databases or user sessions.
 
 
+## 6. CI/CD Pipeline
 
+  CI/CD (Continuous Integration/Continuous Deployment) automates building, testing, and deploying code changes
 
+  CI: Merges code into a shared repo multiple times daily, running automated tests.
+  CD: Automatically deploys validated code to production/staging environments.
 
+### Tools for Implementation:
+
+    -- GitHub Actions: Run tests on every git push
+    -- Docker: Packages app + dependencies into containers for consistent environments (dev → prod).
+    -- Jenkins: Contonous deployment tool that Orchestrates deployment to cloud (e.g AWS/Heroku) after Continuous integration passes.
+    -- Mysql/PostgreSQL: Database schema migrations automated via CI (e.g., using Django migrations).
+    -- Selenium: Automated browser testing (e.g., verifies booking flow post-deploy).
 
 
