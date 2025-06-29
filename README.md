@@ -95,6 +95,128 @@ Automates workflows: builds, tests, deployments.
 
 Relational database management systems (RDBMS) for structured data storage.
 
+## 3. Database Design
+
+### 1. User
+
+  Important Fields:
+  
+    id (Unique identifier)
+    
+    email (Login/contact, unique)
+    
+    password (Authentication)
+    
+    is_host (Boolean flag for host status)
+    
+    avatar_url (Profile image)
+  
+  Relationships:
+  
+    Hosts multiple Places (One-to-Many: User → Place)
+    
+    Makes multiple Bookings as guest (One-to-Many: User → Booking)
+    
+    Writes multiple Reviews (One-to-Many: User → Review)
+
+### 2. Place
+   
+  Important Fields:
+
+    id (Unique identifier)
+    
+    host_id (Foreign Key to User)
+    
+    price_per_night (Cost calculation)
+    
+    latitude/longitude (Location data)
+    
+    max_guests (Capacity limit)
+
+  Relationships:
+
+    Owned by one User (as host) (Many-to-One: Place → User)
+    
+    Has multiple Images (One-to-Many: Place → Image)
+    
+    Has multiple Amenities (Many-to-Many: Place ↔ Amenity via PlaceAmenity)
+    
+    Receives multiple Bookings (One-to-Many: Place → Booking)
+    
+    Receives multiple Reviews (One-to-Many: Place → Review)
+
+### 3. Amenity
+   
+  Important Fields:
+
+    id (Unique identifier)
+    
+    name (e.g., "Pool", "WiFi", unique)
+    
+    icon_class (UI representation)
+
+  Relationships:
+
+    Linked to multiple Places (Many-to-Many: Amenity ↔ Place via PlaceAmenity)
+
+### 4. Booking
+   
+  Important Fields:
+
+    id (Unique identifier)
+    
+    start_date/end_date (Booking period)
+    
+    total_price (Calculated: (end_date - start_date) * place.price_per_night)
+    
+    status (e.g., Confirmed/Pending/Cancelled)
+
+  Relationships:
+
+    Made by one User (guest) (Many-to-One: Booking → User)
+    
+    For one Place (Many-to-One: Booking → Place)
+    
+    Has one Review (One-to-One: Booking ↔ Review)
+
+### 5. Review
+   
+  Important Fields:
+
+    id (Unique identifier)
+    
+    rating (1-5 score)
+    
+    comment (Text feedback)
+    
+    booking_id (Foreign Key, ensures 1 review per booking)
+
+  Relationships:
+
+    Written by one User (author) (Many-to-One: Review → User)
+    
+    About one Place (Many-to-One: Review → Place)
+    
+    Linked to one Booking (One-to-One: Review → Booking)
+
+### 6. Image
+   
+  Important Fields:
+
+    id (Unique identifier)
+    
+    image_url (Cloud storage path)
+    
+    place_id (Foreign Key to Place)
+
+  Relationships:
+
+    Belongs to one Place (Many-to-One: Image → Place)
+
+## 4. Feature Breakdown
+
+## 5. API Security
+
 ## Database Design Overview
 
 
