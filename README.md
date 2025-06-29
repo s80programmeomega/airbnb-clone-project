@@ -253,6 +253,38 @@ Contribution: Drives engagement by helping guests find ideal properties quickly,
 
 ## 5. API Security
 
+Key Security Measures & Implementation
+
+#### 1. Authentication
+   
+Implementation: JWT-based login with password hashing (bcrypt), OAuth2 for social logins, and multi-factor authentication (MFA) for critical actions.
+
+Why Crucial: Protects against unauthorized account access, preventing impersonation, fraud, or data theft (e.g., stealing payment details).
+
+#### 2. Authorization
+   
+Implementation: Role-based access control (RBAC) with Django’s permission system (e.g., @user_passes_test decorators) and object-level checks (e.g., only hosts edit their listings).
+
+Why Crucial: Ensures users access only their own data (e.g., guests can’t modify others’ bookings), safeguarding privacy and financial transactions.
+
+#### 3. Rate Limiting
+   
+Implementation: API request throttling via Django REST Framework (e.g., 100 requests/minute) and tools like Redis to block brute-force attacks.
+
+Why Crucial: Prevents denial-of-service (DoS) attacks and credential stuffing (e.g., flooding login pages), maintaining system stability.
+
+#### 4. Data Encryption
+   
+Implementation: HTTPS/TLS for data in transit; AES-256 encryption for sensitive data at rest (e.g., payment details, messages); secrets management via AWS KMS or HashiCorp Vault.
+
+Why Crucial: Shields user data (PII) and payment information from breaches, ensuring compliance with GDPR/PCI-DSS.
+
+#### 5. Input Validation & Sanitization
+   
+Implementation: Django form/model validation, parameterized queries to block SQL injection, and XSS prevention via template auto-escaping.
+
+Why Crucial: Neutralizes injection attacks (e.g., malicious scripts in reviews) that could compromise databases or user sessions.
+
 
 
 
